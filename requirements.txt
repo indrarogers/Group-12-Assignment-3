@@ -1,0 +1,20 @@
+# Core GUI
+tk
+
+# Hugging Face ecosystem
+transformers>=4.37.0
+diffusers>=0.27.2
+accelerate>=0.28.0
+huggingface_hub
+
+# Deep learning backend
+torch>=2.0.0
+
+# Image handling
+pillow
+
+# Optional speedup for Stable Diffusion
+xformers
+
+# Utility
+numpy
