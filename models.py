@@ -1,8 +1,5 @@
-"""
-models.py
-Defines OOP model classes that interface with Hugging Face models.
-Now uses a lighter Stable Diffusion model for text-to-image and BLIP for image-to-text.
-"""
+# Defines the two AI models from Hugging Face integrated into the GUI
+
 import os
 import torch
 from utils import timing, cached_result, simple_logger
@@ -13,9 +10,7 @@ from transformers import (
 from diffusers import StableDiffusionPipeline
 
 
-# ----------------------------
-# Base (abstract) model interface
-# ----------------------------
+# Base model interface
 class ModelInterface:
     def load(self):
         raise NotImplementedError
@@ -27,17 +22,13 @@ class ModelInterface:
         raise NotImplementedError
 
 
-# ----------------------------
-# Mixin for logging
-# ----------------------------
+# Defines function for log messages, etc.
 class LoggerMixin:
     def log(self, message):
         simple_logger(message)
 
 
-# ----------------------------
-# Stable Diffusion (light) - Text-to-Image
-# ----------------------------
+# Text-to-Image AI Model - Stable Diffusion
 class TextToImageModel(ModelInterface, LoggerMixin):
     def __init__(self):
         self._model = None
@@ -49,7 +40,6 @@ class TextToImageModel(ModelInterface, LoggerMixin):
             self.log("Text-to-Image model already loaded.")
             return
         try:
-            # Using a lighter Stable Diffusion model
             self._model = StableDiffusionPipeline.from_pretrained(
                 "stabilityai/stable-diffusion-2-1-base",
                 torch_dtype=torch.float16 if torch.cuda.is_available() else torch.float32,
@@ -76,8 +66,6 @@ class TextToImageModel(ModelInterface, LoggerMixin):
 
         out_dir = os.path.join(os.getcwd(), "outputs")
         os.makedirs(out_dir, exist_ok=True)
-
-        # Faster settings (lower steps, smaller res)
         result = self._model(
             prompt,
             num_inference_steps=15,  # faster than default 50
@@ -101,9 +89,7 @@ class TextToImageModel(ModelInterface, LoggerMixin):
         }
 
 
-# ----------------------------
-# BLIP (Image-to-Text)
-# ----------------------------
+# Image-to-Text AI Model - BLIP
 class BlipCaptionModel(ModelInterface, LoggerMixin):
     def __init__(self):
         self._model = None
@@ -155,9 +141,7 @@ class BlipCaptionModel(ModelInterface, LoggerMixin):
         }
 
 
-# ----------------------------
 # Model Manager (Polymorphism)
-# ----------------------------
 class ModelManager:
     def __init__(self):
         self.models = {
