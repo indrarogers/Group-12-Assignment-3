@@ -1,7 +1,5 @@
-"""
-utils.py
-Utility decorators and helper functions. Demonstrates multiple decorators usage.
-"""
+# Defines functions for utility decorators and helpers, demonstrates multiple decorators used
+
 import time
 from functools import wraps
 import sys
