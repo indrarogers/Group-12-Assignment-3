@@ -1,11 +1,10 @@
-"""main.py
-Entry point for the Tkinter AI GUI application.
-"""
+# The entry point for the Tkinter GUI
+
 import tkinter as tk
 from gui_components import AppGUI
 from models import ModelManager
 
-def main():
+def main(): # When the function is triggered, it will bring the user to the GUI
     root = tk.Tk()
     root.title("Tkinter AI GUI")
     root.geometry("1000x700")
