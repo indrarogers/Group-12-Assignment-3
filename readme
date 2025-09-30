@@ -1,1 +1,6 @@
 # Group 12 Assignment 3
+# Files used:
+## main: Starts the program and opens the GUI
+## gui_components: Graphical user interface to select and use the models
+## models: Loads the AI models to be used in the GUI
+## utils: For utility decorators and loggers
