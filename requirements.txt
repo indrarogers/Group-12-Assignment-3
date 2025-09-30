@@ -1,19 +1,21 @@
+## These are libraries supported by Python that need to be install before using the program:
+
 # Core GUI
 tk
 
-# Hugging Face ecosystem
-transformers>=4.37.0
-diffusers>=0.27.2
-accelerate>=0.28.0
+# For Hugging Face
+transformers
+diffusers
+accelerate
 huggingface_hub
 
 # Deep learning backend
-torch>=2.0.0
+torch
 
 # Image handling
 pillow
 
-# Optional speedup for Stable Diffusion
+# Optional for speedup
 xformers
 
 # Utility
