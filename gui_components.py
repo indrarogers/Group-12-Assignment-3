@@ -1,7 +1,4 @@
-"""
-gui_components.py
-Contains the Tkinter GUI classes. Shows usage of OOP: encapsulation, inheritance, and composition.
-"""
+# Contains the Tkinter GUI classes. Shows usage of OOP: encapsulation, inheritance, and composition.
 import tkinter as tk
 from tkinter import ttk, filedialog, messagebox, simpledialog
 from PIL import Image, ImageTk
@@ -191,3 +188,4 @@ class AppGUI(ttk.Frame):
 
     def _clear_output(self):
         self.output_text.delete("1.0", "end")
+
