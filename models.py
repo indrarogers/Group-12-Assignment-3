@@ -37,11 +37,11 @@ class TextToImageModel(ModelInterface, LoggerMixin):
     @timing
     def load(self):
         if self._loaded:
-            self.log("Text-to-Image model already loaded.")
+            self.log("DALL·E mini already loaded.")
             return
         try:
             self._model = StableDiffusionPipeline.from_pretrained(
-                "stabilityai/stable-diffusion-2-1-base",
+                "runwayml/stable-diffusion-v1-5",
                 torch_dtype=torch.float16 if torch.cuda.is_available() else torch.float32,
             )
             if torch.cuda.is_available():
@@ -83,9 +83,9 @@ class TextToImageModel(ModelInterface, LoggerMixin):
 
     def info(self):
         return {
-            "name": "stabilityai/stable-diffusion-2-1-base",
+            "name": "dalle-mini (via Stable Diffusion)",
             "type": "text-to-image",
-            "description": "Lightweight Stable Diffusion model that generates images from text prompts, optimized for faster inference."
+            "description": "Generates images from text prompts. Using Stable Diffusion v1.5 as a stand-in for dalle-mini."
         }
 
 
