@@ -6,7 +6,7 @@ from utils import timing, simple_logger
 
 
 class ScrollableFrame(ttk.Frame):
-    """A reusable scrollable frame for Tkinter GUIs."""
+    # A reusable scrollable frame for Tkinter GUIs.
     def __init__(self, container, *args, **kwargs):
         super().__init__(container, *args, **kwargs)
 
@@ -54,7 +54,7 @@ class AppGUI(ttk.Frame):
         simple_logger("GUI initialized.")
 
     def _setup_widgets(self):
-        # ---------- Model Selection ----------
+        # Model Selection
         model_frame = ttk.LabelFrame(self.main_area, text="Model Selection")
         model_frame.pack(fill="x", pady=5)
         self.model_combo = ttk.Combobox(
@@ -68,7 +68,7 @@ class AppGUI(ttk.Frame):
         load_btn = ttk.Button(model_frame, text="Load Model", command=self._load_model)
         load_btn.pack(side="left", padx=5)
 
-        # ---------- Input ----------
+        # Input
         input_frame = ttk.LabelFrame(self.main_area, text="User Input")
         input_frame.pack(fill="x", pady=5)
         ttk.Radiobutton(input_frame, text="Text", variable=self._input_type, value="Text").pack(side="left", padx=5)
@@ -80,19 +80,19 @@ class AppGUI(ttk.Frame):
         clear_btn = ttk.Button(input_frame, text="Clear Output", command=self._clear_output)
         clear_btn.pack(side="left", padx=5)
 
-        # ---------- Output Display ----------
+        # Output Display
         out_frame = ttk.LabelFrame(self.main_area, text="Output Display")
         out_frame.pack(fill="both", expand=True, pady=5)
         self.output_text = tk.Text(out_frame, wrap="word", height=10)
         self.output_text.pack(fill="both", expand=True, padx=5, pady=5)
 
-        # ---------- Image Preview ----------
+        # Image Preview
         preview_frame = ttk.LabelFrame(self.main_area, text="Image Preview")
         preview_frame.pack(fill="x", pady=5)
         self.preview_label = ttk.Label(preview_frame, text="No image selected")
         self.preview_label.pack()
 
-        # ---------- Model Info & OOP Explanation ----------
+        # Model Info & OOP Explanation
         info_frame = ttk.LabelFrame(self.main_area, text="Model Info & OOP Explanation")
         info_frame.pack(fill="x", pady=5)
         self.model_info_label = tk.Label(info_frame, text="", justify="left", anchor="w")
@@ -105,7 +105,7 @@ class AppGUI(ttk.Frame):
 
     def _populate_oop_explanation(self):
         expl = (
-            "OOP Concepts used in this project:\n"
+            "OOP Concepts used in this project and where:\n"
             "- Multiple Inheritance: Model adapter classes (e.g., TextToImageModel, BlipCaptionModel) inherit from ModelInterface and LoggerMixin.\n"
             "- Multiple Decorators: utils.timing and utils.cached_result are applied to model load/run methods to measure time and cache results.\n"
             "- Encapsulation: model objects are stored in private attributes (e.g., self._model, self._loaded).\n"
@@ -188,4 +188,5 @@ class AppGUI(ttk.Frame):
 
     def _clear_output(self):
         self.output_text.delete("1.0", "end")
+
 
