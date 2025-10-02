@@ -1,4 +1,4 @@
-## These are libraries supported by Python that need to be install before using the program:
+## These are libraries supported by Python that need to be installed before using the program:
 
 # Core GUI
 tk
