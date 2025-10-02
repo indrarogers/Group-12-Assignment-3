@@ -1,4 +1,7 @@
 # Group 12 Assignment 3
+
+# Download the required libraries in requirements.txt and access the program through main.py
+
 # Files used:
 ## main: Starts the program and opens the GUI
 ## gui_components: Graphical user interface to select and use the models
