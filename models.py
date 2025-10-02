@@ -37,7 +37,7 @@ class TextToImageModel(ModelInterface, LoggerMixin):
     @timing
     def load(self):
         if self._loaded:
-            self.log("DALL·E mini already loaded.")
+            self.log("Stable Diffusion already loaded.")
             return
         try:
             self._model = StableDiffusionPipeline.from_pretrained(
@@ -83,9 +83,9 @@ class TextToImageModel(ModelInterface, LoggerMixin):
 
     def info(self):
         return {
-            "name": "dalle-mini (via Stable Diffusion)",
+            "name": "Stable Diffusion v1.5",
             "type": "text-to-image",
-            "description": "Generates images from text prompts. Using Stable Diffusion v1.5 as a stand-in for dalle-mini."
+            "description": "Generates images from text prompts."
         }
 
 
