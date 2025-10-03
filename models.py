@@ -137,9 +137,8 @@ class BlipCaptionModel(ModelInterface, LoggerMixin):
         return {
             "name": "Salesforce/blip-image-captioning-large",
             "type": "image-to-text",
-            "description": "BLIP captioning model that generates natural language captions for images."
+            "description": "BLIP captioning model that generates descriptive captions for the inputted images."
         }
-
 
 # Model Manager (Polymorphism)
 class ModelManager:
